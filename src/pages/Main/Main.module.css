@@ -1,0 +1,14 @@
+.main {
+    background-color: rgb(226, 226, 226);
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.properties {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px;
+}

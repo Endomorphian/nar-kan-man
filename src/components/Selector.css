@@ -1,0 +1,8 @@
+.selector {
+    padding: 0px 10px 5px 10px;
+}
+
+.outer {
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.247);
+}
