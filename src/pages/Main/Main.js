@@ -1,3 +1,5 @@
+import Knapp from "../../components/Knapp"
+import List from "../../components/List"
 import Selector from "../../components/Selector"
 import styles from "./Main.module.css"
 
@@ -17,10 +19,10 @@ const Main = () => {
             <Selector color="#B3DEE2" prop="KÖN" />
         </div>
         <div className={ styles.beverage }>
-            <button>Dryck</button>
+            <Knapp text="Bananana" />
         </div>
         <div className={ styles.list }>
-            List
+            <List />
         </div>
         <div className={ styles.bottom }>
             <button>Resultat</button>

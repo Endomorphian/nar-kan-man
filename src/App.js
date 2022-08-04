@@ -4,13 +4,14 @@ import { useAuthContext } from './hooks/useAuthContext'
 
 //pages
 import Create from './pages/create/Create';
-import Dashboard from './pages/dashboard/Dashboard';
+//import Dashboard from './pages/dashboard/Dashboard';
 import Login from './pages/login/Login';
 import Project from './pages/project/Project';
 import Signup from './pages/signup/Signup';
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
+//import Navbar from './components/Navbar';
+//import Sidebar from './components/Sidebar';
 import Main from './pages/Main/Main';
+import Test from './pages/test/Test';
 
 function App() {
   const { user, authIsReady } = useAuthContext()
@@ -28,6 +29,10 @@ function App() {
               <Route 
                 path="/" 
                 element={user ? <p>Do nothing for now</p> : <Navigate to="/login" />} 
+              />
+              <Route 
+                path="/test" 
+                element={ <Test /> } 
               />
               <Route 
                 path="/create" 

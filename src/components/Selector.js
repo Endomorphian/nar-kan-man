@@ -1,7 +1,6 @@
 import './Selector.css'
 
 import Select from 'react-select'
-import { AuthContext } from '../context/AuthContext'
 
 const Selector = ({ color, prop }) => {
 
@@ -48,8 +47,6 @@ const Selector = ({ color, prop }) => {
                 onChange={handleChange}
             />
         </div>
-    
-    
     </div>
   )
 }
