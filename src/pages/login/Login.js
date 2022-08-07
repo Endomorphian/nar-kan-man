@@ -1,7 +1,9 @@
-import './Login.css'
-//import '../signup/Signup.css'
 import { useState } from 'react'
 import { useLogin } from '../../hooks/useLogin'
+import Knapp from '../../components/Knapp'
+import { Link } from 'react-router-dom'
+
+import styles from './Login.module.css'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -14,8 +16,12 @@ const Login = () => {
   }
 
   return (
+    <>
     <form className='auth-form' onSubmit={handleSubmit} >
-      <h2>Login</h2>
+    <div className={styles.choice}>
+      <h2>Login &nbsp;| &nbsp;</h2>
+      <Link to="/signup"><h2 style={{color: "grey"}}>Signup</h2></Link>
+    </div>
       <label>
         <span>Email</span>
         <input
@@ -34,8 +40,11 @@ const Login = () => {
       </label>
       {isPending && <button className='btn' disabled>Loading...</button>}
       {!isPending && <button className='btn'>Login</button>}
+
       {error && <div className='error'>{error}</div>}
+      <Knapp text="Tillbaka" page="/" />
     </form>
+    </>
   )
 }
 

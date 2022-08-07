@@ -1,0 +1,23 @@
+.main {
+  background-color: rgb(226, 226, 226);
+}
+.title{
+  font-family: 'Reggae One', cursive;
+  font-size: 1.5rem;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+.icon{
+  background-color: rgb(255, 255, 246);
+  text-align: center;
+  line-height: 1.2rem;
+  vertical-align: middle;
+}
+
+.properties {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0px;
+}

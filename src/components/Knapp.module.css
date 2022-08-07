@@ -1,5 +1,16 @@
-.knapp{
-  background-color: red;
-  font-size: 50px;
+.black{
+  background-color: rgb(0, 0, 0);
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
   font-family: 'Shadows Into Light Two', cursive;
+  border-radius: 1rem;
 }
+
+.white{
+  background-color: rgb(255, 255, 255);
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  font-family: 'Shadows Into Light Two', cursive;
+  border-radius: 1rem;
+}
+

@@ -8,10 +8,13 @@ import Create from './pages/create/Create';
 import Login from './pages/login/Login';
 import Project from './pages/project/Project';
 import Signup from './pages/signup/Signup';
+import Resultat from './pages/resultat/Resultat';
 //import Navbar from './components/Navbar';
 //import Sidebar from './components/Sidebar';
 import Main from './pages/Main/Main';
-import Test from './pages/test/Test';
+import Navbar from './components/Navbar';
+import Settings from './pages/settings/Settings';
+import { Drycker } from './pages/drycker/Drycker';
 
 function App() {
   const { user, authIsReady } = useAuthContext()
@@ -21,22 +24,30 @@ function App() {
       {authIsReady && (
         <BrowserRouter>
           
-          {user && <div>logged in {user.displayName}<br /></div> }
+          {/*user && <div>logged in {user.displayName}<br /></div>*/ }
           <div className='container'>
+          <Navbar />
           
-          <Main />
             <Routes>
               <Route 
                 path="/" 
-                element={user ? <p>Do nothing for now</p> : <Navigate to="/login" />} 
+                element={ <Main /> } 
               />
               <Route 
-                path="/test" 
-                element={ <Test /> } 
+                path="/resultat" 
+                element={ <Resultat /> } 
+              />
+              <Route 
+                path="/settings" 
+                element={ <Settings /> } 
               />
               <Route 
                 path="/create" 
                 element={user ? <Create /> : <Navigate to="/login" />} 
+              />
+              <Route 
+                path="/drycker" 
+                element={<Drycker />} 
               />
               <Route 
                 path="/projects/:id" 

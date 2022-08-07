@@ -1,6 +1,7 @@
-import './Signup.css'
+import styles from './Signup.module.css'
 import { useState } from 'react'
 import { useSignup } from '../../hooks/useSignup'
+import { Link } from 'react-router-dom'
 
 const Signup = () => {
   const [email, setEmail] = useState('')
@@ -40,7 +41,10 @@ const Signup = () => {
 
   return (
     <form className='auth-form' onSubmit={handleSubmit} >
-      <h2>Signup</h2>
+      <div className={styles.choice}>
+      <Link to="/login"><h2 style={{color: "grey"}}>Login &nbsp;| &nbsp;</h2></Link>
+        <h2>Signup</h2>
+      </div>
       <label>
         <span>Email</span>
         <input
