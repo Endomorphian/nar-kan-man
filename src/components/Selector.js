@@ -1,14 +1,14 @@
 import './Selector.css'
+import { BsGenderFemale, BsGenderMale } from "react-icons/bs"
 
 import Select from 'react-select'
 
 const Selector = ({ color, prop }) => {
 
     const options = [
-        { value: '0', label: '0' },
-        { value: '10', label: '10' },
-        { value: '30', label: '30' }
-      ]
+        { value: 'm', label: <BsGenderFemale /> },
+        { value: 'f', label: <BsGenderMale /> },
+    ]
 
     const handleChange = ({value}) => {
             console.log("ON CHANGE", value)
@@ -43,7 +43,7 @@ const Selector = ({ color, prop }) => {
             <Select 
                 styles = {customStyles}
                 options={options} 
-                defaultValue={{ label: "?", value: 0 }}
+                defaultValue={{ label: <BsGenderMale />, value: 0 }}
                 onChange={handleChange}
             />
         </div>

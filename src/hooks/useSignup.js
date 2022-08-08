@@ -36,7 +36,8 @@ export const useSignup = () => {
         age: "?",
         weight: "??",
         gender: "???",
-        collections: { test1: true, test2: false}
+        collections: { test1: true, test2: false},
+        id: res.user.uid
       })
 
       // dispatch login action

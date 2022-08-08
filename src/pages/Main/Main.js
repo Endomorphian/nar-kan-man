@@ -1,14 +1,15 @@
 import Knapp from "../../components/Knapp"
 import List from "../../components/List"
 import Selector from "../../components/Selector"
+import SelectorNumber from "../../components/SelectorNumber"
 import styles from "./Main.module.css"
 
 const Main = () => {
   return (
     <div className={ styles.main }>
         <div className={ styles.properties }>
-            <Selector color="#EFCFE3" prop="ÅLDER" />
-            <Selector color="#EAF2D7" prop="VIKT" />
+            <SelectorNumber color="#EFCFE3" prop="ÅLDER" />
+            <SelectorNumber color="#EAF2D7" prop="VIKT" />
             <Selector color="#B3DEE2" prop="KÖN" />
         </div>
         <div className={ styles.beverage }>
