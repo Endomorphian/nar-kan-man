@@ -40,7 +40,7 @@ const Main = () => {
     // Get values and update: gender
     const callbackGender = (value) => {
         setGender(value)
-        localStorage.setItem('gender', gender)
+        localStorage.setItem('gender', gender)git 
     }
 
     useEffect(() => {
