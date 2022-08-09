@@ -2,13 +2,14 @@ import './Selector.css'
 
 import { useState } from 'react'
 
-const SelectorNumber = ({ color, prop }) => {
+const SelectorNumber = ({ color, prop, callback, weight }) => {
 
-  const [age, setAge] = useState(20)
+  const [vikt, setVikt] = useState(20)
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      console.log(age)
+      callback(vikt)
+      console.log(vikt)
     }
 
   return (
@@ -21,7 +22,7 @@ const SelectorNumber = ({ color, prop }) => {
               <input
                 required 
                 type="number"
-                onChange={(e)=> setAge(e.target.value)}
+                onChange={(e)=> setVikt(e.target.value)}
               />   
             </label>
             <button>press</button>

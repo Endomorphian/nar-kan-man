@@ -5,11 +5,19 @@ import { useCollection } from '../../hooks/useCollection'
 
 import styles from "./Settings.module.css"
 import { Link } from 'react-router-dom'
+import { projectFirestore } from '../../firebase/config'
 
 const Settings = () => {
   const { logout, isPending } = useLogout()
   const { user } = useAuthContext()
   const { error, documents } = useCollection('users', ["id", "==", user.uid])
+
+  const handleClick = () => {
+    projectFirestore.collection('users').doc(user.uid).update({
+      new2: "bongo bongo"
+    })
+    console.log("clicked me!")
+  }
 
   return (
     
@@ -31,6 +39,7 @@ const Settings = () => {
         <div className={styles.section}>
           <Link to="/">{!isPending && <button className="btn" onClick={logout}>Logout</button>}</Link>
           {isPending && <button className="btn" disabled>Logging out...</button>}
+          <button onClick={handleClick}>UPDATE</button>
         </div>
       )}
 

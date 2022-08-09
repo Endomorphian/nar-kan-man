@@ -59,7 +59,7 @@ const List = () => {
             {data.tid} 
           </div>
           <div className={styles.itemFour}>
-            <MdDeleteOutline size="1.5rem" onClick={() => handleDelete(data.titel)}/>
+            <MdDeleteOutline onClick={() => handleDelete(data.titel)}/>
           </div>
         </div>
       ))}

@@ -1,5 +1,8 @@
 .main {
     background-color: rgb(226, 226, 226);
+    display: flex;
+    flex-direction: column;
+    flex: 30%;
 }
 .top {
     display: flex;
@@ -7,6 +10,7 @@
 }
 .properties {
     display: flex;
+    flex: 33%;
     justify-content: space-around;
     padding: 20px 0px;
 }
@@ -18,3 +22,4 @@
     display: flex;
     justify-content: center;
 }
+
