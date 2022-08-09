@@ -9,6 +9,8 @@ import styles from "./Main.module.css"
 
 const Main = () => {
 
+    if (!localStorage.getItem('time')) { localStorage.setItem('time', new Date()) }
+
     const [starttime, setStarttime] = useState(localStorage.getItem('time'))
     const [weight, setWeight] = useState(localStorage.getItem('weight'))
     const [gender, setGender] = useState(localStorage.getItem('gender'))
@@ -40,7 +42,7 @@ const Main = () => {
     // Get values and update: gender
     const callbackGender = (value) => {
         setGender(value)
-        localStorage.setItem('gender', gender)git 
+        localStorage.setItem('gender', gender)
     }
 
     useEffect(() => {
