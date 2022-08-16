@@ -24,6 +24,7 @@ const Settings = () => {
     <div className={styles.container}>
       {error && <p>{error}</p>}
 
+      {!documents && <div>Loading...</div>}
       {documents && documents.map((doc) => (
         <div key="doc.id" className={styles.section} >
           <div>Namn: {doc.displayName}</div>
