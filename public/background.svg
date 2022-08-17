@@ -1,0 +1,29 @@
+<svg id="SVGRoot" width="390px" height="844px" version="1.1" viewBox="0 0 390 844" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="linearGradient1721" x1="269.31" x2="-56.084" y1="281.39" y2="-173.49" gradientTransform="matrix(1.1432 0 0 1.0334 403.06 163.76)" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#eaf2d7" offset="0"/>
+          <stop stopColor="#fff" stopOpacity="0" offset="1"/>
+          </linearGradient>
+          <linearGradient id="linearGradient2491" x1="138.32" x2="11.801" y1="177.74" y2="-80.419" gradientTransform="matrix(1.1432 0 0 1.0334 147.29 676.38)" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#efcfe3" offset="0"/>
+          <stop stopColor="#fff" stopOpacity="0" offset="1"/>
+          </linearGradient>
+          <linearGradient id="linearGradient3261" x1="142.14" x2="8.9323" y1="322.64" y2="-53.978" gradientTransform="matrix(1.1432 0 0 1.0334 -280.07 370.34)" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#b3dee2" stopOpacity=".42138" offset="0"/>
+          <stop stopColor="#fff" stopOpacity="0" offset="1"/>
+          </linearGradient>
+          <linearGradient id="linearGradient839" x1="-162.86" x2="175.3" y1="-47.546" y2="197.75" gradientTransform="matrix(1.1432 0 0 1.0334 41.817 -68.507)" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#ea9ab2" offset="0"/>
+          <stop stopColor="#fff" stopOpacity="0" offset="1"/>
+          </linearGradient>
+        </defs>
+        <g>
+          <rect x="-148.65" y="-54.65" width="667.83" height="989.17" fill="#fff"/>
+          <g strokeWidth="1.0869">
+          <ellipse cx="148.65" cy="81.156" rx="279.26" ry="236.64" fill="url(#linearGradient839)"/>
+          <ellipse cx="509.89" cy="313.42" rx="279.26" ry="236.64" fill="url(#linearGradient1721)"/>
+          <ellipse cx="254.12" cy="826.04" rx="279.26" ry="236.64" fill="url(#linearGradient2491)"/>
+          <ellipse cx="-173.24" cy="520" rx="279.26" ry="236.64" fill="url(#linearGradient3261)"/>
+          </g>
+        </g>
+      </svg>

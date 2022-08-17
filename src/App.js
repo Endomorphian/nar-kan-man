@@ -16,11 +16,13 @@ import Navbar from './components/Navbar';
 import Settings from './pages/settings/Settings';
 import { Drycker } from './pages/drycker/Drycker';
 
+import mySvg from "./images/background.svg";
+
 function App() {
   const { user, authIsReady } = useAuthContext()
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundImage: `url(${mySvg})` }}>
       {authIsReady && (
         <BrowserRouter>
           

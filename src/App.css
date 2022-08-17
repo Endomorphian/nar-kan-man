@@ -6,6 +6,7 @@ body, html {
 .App {
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 .App .container{
   flex-grow: 1;

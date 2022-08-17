@@ -8,3 +8,43 @@
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
+.wrap {
+  align-self: start;
+  width: 100%;
+  height: 100vw;
+}
+.username {
+  position: absolute;
+  background-color: #EFCFE3;
+  width: 60vw;
+  height: 60vw;
+  right: 120px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60vw;
+}
+.weight {
+  position: absolute;
+  background-color: #EA9AB2;
+  width: 30vw;
+  height: 30vw;
+  right: 25px;
+  top: 180px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30vw;
+  mix-blend-mode: multiply;
+}
+.gender {
+  position: absolute;
+  background-color: #B3DEE2;
+  width: 30vw;
+  height: 30vw;
+  right: 75px;
+  top: 275px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30vw;
+  mix-blend-mode: multiply;
+}
+

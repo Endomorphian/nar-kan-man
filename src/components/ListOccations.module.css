@@ -1,0 +1,33 @@
+.outer{
+  margin-bottom: 2rem;
+}
+.containerRubrik {
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: .2rem .2rem .2rem #ea9ab269;
+  border: 1px solid rgba(0, 0, 0, 0.171);
+}
+.containerList {
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+}
+.wrap {
+  background-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  box-shadow: .2rem .2rem .2rem #ea9ab269;
+}
+.item {
+  flex: 43%;
+}
+.rubrik {
+  flex: 43%;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
