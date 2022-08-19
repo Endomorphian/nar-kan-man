@@ -1,13 +1,15 @@
 import { useLogout } from '../../hooks/useLogout'
 import { useAuthContext } from '../../hooks/useAuthContext'
-import Knapp from '../../components/Knapp'
 import { useCollection } from '../../hooks/useCollection'
-import SyncLoader from "react-spinners/SyncLoader"
 import { Link } from 'react-router-dom'
 import { projectFirestore } from '../../firebase/config'
 
-import styles from "./Settings.module.css"
+import Knapp from '../../components/Knapp'
+import SyncLoader from "react-spinners/SyncLoader"
 import ListOccations from '../../components/ListOccations'
+
+import styles from "./Settings.module.css"
+
 
 const Settings = () => {
   const { logout, isPending } = useLogout()
@@ -16,7 +18,7 @@ const Settings = () => {
 
   const handleClick = () => {
     projectFirestore.collection('users').doc(user.uid).update({
-      new2: "bongo bongo"
+      "collections.Deniz" : ["6ppm", "7 Januari", "SanneX"]
     })
     console.log("clicked me!")
   }
@@ -41,7 +43,7 @@ const Settings = () => {
         </div>
       </div>
 
-      <ListOccations />
+      {documents && <ListOccations documents={documents} /> }
       
       <Knapp text="Tillbaka" page="/"/>
 

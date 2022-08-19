@@ -67,16 +67,6 @@ const Main = () => {
         <div className={ styles.bottom }>
             <Knapp text="Resultat" page="/resultat"/>
         </div>
-        <div>
-            {starttime.toString()}
-        </div>
-        <div>
-            {weight}
-        </div>
-        <div>
-            {gender}
-        </div>
-
     </div>
   )
 }

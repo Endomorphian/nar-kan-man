@@ -1,28 +1,22 @@
 import styles from "./ListOccations.module.css"
 
-const ListOccations = () => {
-  const occations = [
-    {
-      place: "Mossens", 
-      ppm: "1.4", 
-      date: "2021-04-21"
-    },
-    {
-      place: "Via Venetio", 
-      ppm: "1.0", 
-      date: "2021-07-02"
-    },
-    {
-      place: "Sannegården", 
-      ppm: "0.7", 
-      date: "2021-10-13"
-    },
-    {
-      place: "Deniz Pizzeria", 
-      ppm: "2.1", 
-      date: "2022-03-21"
-    }
-  ]
+const ListOccations = ({documents}) => {
+
+  const test = documents[0].collections
+
+  //let str = JSON.stringify(test, null, 4); // (Optional) beautiful indented output.
+  //console.log(str); // Logs output to dev tools console.
+
+  //console.log(Object.values(test))
+  const slask = Object.values(test)
+
+  const flat = slask.map( (x, index) => (
+    <div key={index} className={styles.containerList} >
+      <p className={styles.item}>{x[2]}</p>
+      <p className={styles.item}>{x[0]}</p>
+      <p className={styles.item}>{x[1]}</p>
+    </div>
+    ));
 
   return (
     <div className={styles.outer}>
@@ -33,17 +27,10 @@ const ListOccations = () => {
         </div>
 
       <div className={styles.wrap}>
-        {occations.map((occ, index) => (
-          <div key={index} className={styles.containerList}>
-            <p className={styles.item}>{occ.place}</p>
-            <p className={styles.item}>{occ.ppm}</p>
-            <p className={styles.item}>{occ.date}</p>
-          </div>
-        ))}
+        {flat}
       </div>
     </div>
     )
-  
 }
 
 export default ListOccations
