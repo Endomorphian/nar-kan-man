@@ -2,21 +2,17 @@ import styles from "./ListOccations.module.css"
 
 const ListOccations = ({documents}) => {
 
-  const test = documents[0].collections
+  const db = documents[0].collections
 
-  //let str = JSON.stringify(test, null, 4); // (Optional) beautiful indented output.
-  //console.log(str); // Logs output to dev tools console.
+  const formatted = Object.values(db)
 
-  //console.log(Object.values(test))
-  const slask = Object.values(test)
-
-  const flat = slask.map( (x, index) => (
+  const flat = formatted.map( (x, index) => (
     <div key={index} className={styles.containerList} >
       <p className={styles.item}>{x[2]}</p>
       <p className={styles.item}>{x[0]}</p>
       <p className={styles.item}>{x[1]}</p>
     </div>
-    ));
+    ))
 
   return (
     <div className={styles.outer}>

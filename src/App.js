@@ -21,8 +21,13 @@ import mySvg from "./images/background.svg";
 function App() {
   const { user, authIsReady } = useAuthContext()
 
+  const mystyle = {
+    backgroundImage: `url(${mySvg})`,
+    backgroundSize: 'cover',
+  }
+
   return (
-    <div className="App" style={{ backgroundImage: `url(${mySvg})` }}>
+    <div className="App" style={mystyle}>
       {authIsReady && (
         <BrowserRouter>
           

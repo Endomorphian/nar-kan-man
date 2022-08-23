@@ -10,7 +10,7 @@
 .properties {
     display: flex;
     flex: 33%;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 20px 0px;
 }
 .bottom {

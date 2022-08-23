@@ -3,19 +3,22 @@ import './Selector.css'
 import Select from 'react-select'
 import { useState } from 'react'
 
+import { BsGenderMale } from 'react-icons/bs'
+import { BsGenderFemale } from 'react-icons/bs'
+
 const Selector = ({ color, prop, callback, gender }) => {
 
     const [sex, setSex] = useState(gender)
  
     const options = [
-        { value: 'f', label: "m" },
-        { value: 'm', label: "k" },
+        { value: 'fem', label: <BsGenderFemale /> },
+        { value: 'ma', label: <BsGenderMale /> },
     ]
 
     const handleChange = ({value}) => {
             setSex(value)
-            callback(sex)
-            console.log("ON CHANGE", sex)
+            callback(value)
+            console.log("ON CHANGE", value)
         }
 
     const customStyles = {
@@ -28,9 +31,9 @@ const Selector = ({ color, prop, callback, gender }) => {
         }),
         control: () => ({
             // none of react-select's styles are passed to <Control />
-            minWidth: '15vw',
+            minWidth: '10vw',
             backgroundColor: 'white',
-            fontSize: '25px',
+            fontSize: '1rem',
         }),
         singleValue: (provided, state) => {
             const opacity = state.isDisabled ? 0.5 : 1;
@@ -47,8 +50,9 @@ const Selector = ({ color, prop, callback, gender }) => {
             <Select 
                 styles = {customStyles}
                 options={options} 
-                defaultValue={{ label: gender, value: sex }}
+                defaultValue={{ label: "--", value: sex }}
                 onChange={handleChange}
+                components={{ DropdownIndicator:() => null, IndicatorSeparator:() => null }}
             />
         </div>
     </div>

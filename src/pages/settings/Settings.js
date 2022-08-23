@@ -51,7 +51,11 @@ const Settings = () => {
         <div className={styles.section}>
           <Link to="/">{!isPending && <button className="btn" onClick={logout}>Logout</button>}</Link>
           {isPending && <button className="btn" disabled>Logging out...</button>}
-          <button onClick={handleClick}>UPDATE</button>
+
+          <div>
+            <button onClick={handleClick}>UPDATE</button>
+          </div>
+          
         </div>
       )}
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import Knapp from "../../components/Knapp"
 import List from "../../components/List"
 import Selector from "../../components/Selector"
@@ -9,11 +9,22 @@ import styles from "./Main.module.css"
 
 const Main = () => {
 
+    const asyncLocalStorage = useMemo( () => ({
+        setItem: async function (key, value) {
+            await null;
+            return localStorage.setItem(key, value);
+        },
+        getItem: async function (key) {
+            await null;
+            return localStorage.getItem(key);
+        }
+    }), [])
+
     if (!localStorage.getItem('time')) { localStorage.setItem('time', new Date()) }
 
     const [starttime, setStarttime] = useState(localStorage.getItem('time'))
     const [weight, setWeight] = useState(localStorage.getItem('weight'))
-    const [gender, setGender] = useState(localStorage.getItem('gender'))
+    const [gender, setGender] = useState(localStorage.getItem("gender"))
 
     // Get values and update: time
     const callbackTime = (value) => {
@@ -42,15 +53,18 @@ const Main = () => {
     // Get values and update: gender
     const callbackGender = (value) => {
         setGender(value)
-        localStorage.setItem('gender', gender)
+        asyncLocalStorage.setItem('gender', gender)
     }
 
     useEffect(() => {
-        localStorage.setItem('gender', gender) 
+        asyncLocalStorage.setItem('gender', gender) 
 
+    }, [gender, asyncLocalStorage])
+
+    useEffect(() => {
+        localStorage.getItem('gender', gender) 
     }, [gender])
     
-
   return (
     <div className={ styles.main }>
         <div className={ styles.properties }>

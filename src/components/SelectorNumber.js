@@ -17,7 +17,7 @@ const SelectorNumber = ({ color, prop, callback, weight }) => {
         <div >{prop}</div>
         <div className="selector">
 
-          <form className='auth-form' onSubmit={handleSubmit} >
+          <form className="form" onSubmit={handleSubmit} >
             <label>
               <input
                 required 
