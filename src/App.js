@@ -14,6 +14,7 @@ import Resultat from './pages/resultat/Resultat';
 import Main from './pages/Main/Main';
 import Navbar from './components/Navbar';
 import Settings from './pages/settings/Settings';
+import Test from './pages/test/Test';
 import { Drycker } from './pages/drycker/Drycker';
 
 import mySvg from "./images/background.svg";
@@ -39,6 +40,10 @@ function App() {
               <Route 
                 path="/" 
                 element={ <Main /> } 
+              />
+              <Route 
+                path="/test" 
+                element={ <Test /> } 
               />
               <Route 
                 path="/resultat" 
