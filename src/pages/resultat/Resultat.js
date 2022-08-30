@@ -1,18 +1,30 @@
 import Knapp from "../../components/Knapp"
 import styles from "./Resultat.module.css"
-
+import { useState, useEffect } from "react"
 import Countdown from "../../components/Countdown";
 import Chart from "../../components/Chart";
 
 const Resultat = () => {
 
+  // --> PPM + Sluttid + weight + gender
+
+  const [starttime, setStarttime] = useState(new Date())
+  const [endtime, setEndtime] = useState(new Date())
+  const [ppm, setPpm] = useState(1)
+  const [weight, setWeight] = useState(null)
+  const [gender, setGender] = useState(null)
+  
+  const [period, setPeriod] = useState(1.7)
+
+  // CHART DATA
   const generateChartData = () => {
-    let datum = new Date().getTime()
+    
+    let datum = Date.parse(endtime)
 
     console.log("milli", datum)
 
     const data = []
-    let ppm = 1.5 / 10 //KOLLA EKVATIONERNA OCH ENHETERNA!!! Should start at ppm, not ppm -0.015
+    let ppm = 0.5 / 10 // KOLLA EKVATIONERNA OCH ENHETERNA!!! Should start at ppm, not ppm -0.015
     let intialPpm = ppm
     const metabolism = -0.015 / 6
     let timeString = ""
@@ -20,7 +32,6 @@ const Resultat = () => {
     let chartBoolean = false
 
     while (ppm > 0) {
-      
       let temp = new Date(datum)
       
       timeString = temp.getHours().toString() + ":" + temp.getMinutes().toString()
@@ -30,7 +41,6 @@ const Resultat = () => {
       if (ppm < 0.02 && chartBoolean === false) { 
         chartLine = timeString
         chartBoolean = true
-        console.log("chartLine", chartLine)
       }
 
       data.push({
@@ -40,19 +50,16 @@ const Resultat = () => {
 
       datum += 1000 * 600
       ppm += metabolism
+
     }
 
     return {data, chartLine, intialPpm}
   }
 
-  //Should get real data from Main
+  // Reurn period of drinking in hours
   const calculateTime = () => {
-    const start = new Date()
-    const end = new Date()
-  
-    end.setHours( end.getHours() + 2 )
-    end.setMinutes( end.getMinutes() + 15 )
-    const diff = end.valueOf() - start.valueOf()
+    const diff = endtime.valueOf() - starttime.valueOf()
+    console.log(diff, "diff")
   
     let minutes = Math.floor((Math.floor(diff / 1000)) / 60) 
     let hours = Math.floor(minutes / 60) 
@@ -60,11 +67,13 @@ const Resultat = () => {
     minutes = minutes % 60
     hours = hours % 24
   
-    console.log(hours, "h", minutes, "m")
+    //setPeriod(hours + (minutes * (1/60)))
+    console.log(hours + (minutes * (1/60)), "hours")
   }
+  //-------------------------
 
-  //Should get real data from Main
-  const widmarksFormula = (weight = 81.6, gender = 'm', alcohol = 100, period = 2) => {
+  // Should get real data from Main
+  const widmarksFormula = (alcohol) => {
     // BAC = [Alcohol consumed in grams / (Body weight in grams x R)] X 100
     // everyone metabolizes alcohol at the same rate–.015 an hour
 
@@ -76,9 +85,11 @@ const Resultat = () => {
     let BAC = (alcohol / ( weight * 1000 * genderConstant)) * 100
 
     BAC = BAC + (period * metabolize)
+    console.log("BAC:", BAC)
 
     return BAC
   }
+  //-------------------------
 
   //Should get real data
   const whenToDrive = (BAC) => {
@@ -88,12 +99,22 @@ const Resultat = () => {
     
     return (atLimit > 0) ? atLimit : 0
   }
+  //-------------------------
 
-  calculateTime()
-  console.log(widmarksFormula())
-  console.log(whenToDrive(widmarksFormula()), "timmar")
+    // Get data from localstore
+  useEffect(() => {
+    setStarttime(new Date(Date.parse(localStorage.getItem("time"))))
+    setEndtime(new Date(Date.parse(localStorage.getItem("endtime"))))
+    setPpm(localStorage.getItem("ppm"))
+    setGender(localStorage.getItem("gender"))
+    setWeight(localStorage.getItem("weight"))
+  }, [])
+  //-------------------------
 
   let { data, chartLine, intialPpm } = generateChartData()
+
+  calculateTime()
+  console.log(whenToDrive(widmarksFormula(ppm)), "timmar")
 
   return (
     <div className={styles.container}>
@@ -110,6 +131,12 @@ const Resultat = () => {
       </div>
 
       <Knapp text="Tillbaka" page="/"/>
+
+      <p>{ starttime.toString() }</p>
+      <p>{ endtime.toString() }</p>
+      <p>ppm: { ppm }</p>
+      <p>gender: { gender }</p>
+      <p>weight: { weight }</p>
     </div>
   )
 }

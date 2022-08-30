@@ -20,12 +20,13 @@ const SelectorNumber = ({ color, prop, callback, weight }) => {
           <form className="form" onSubmit={handleSubmit} >
             <label>
               <input
+                placeholder={weight}
                 required 
                 type="number"
                 onChange={(e)=> setVikt(e.target.value)}
               />   
             </label>
-            <button>press</button>
+            <button className='btn'>press</button>
           </form>
 
         </div>

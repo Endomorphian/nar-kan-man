@@ -14,7 +14,7 @@ export default function Navbar() {
       <div className={ styles.top }>
         <div className={styles.title}>När kan jag köra?</div>
         <div className={styles.icon}>
-          <div><FcEngineering size="70px"/></div>
+          <div><FcEngineering size="1.2rem"/></div>
           <div>{user ? <Link to="/settings">{user.displayName}</Link> : <Link to="/login">Gäst</Link> }</div>
         </div>
       </div>

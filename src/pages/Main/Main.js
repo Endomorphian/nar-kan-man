@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react"
+import { useState, useEffect } from "react"
 import Knapp from "../../components/Knapp"
 import List from "../../components/List"
 import Selector from "../../components/Selector"
@@ -9,62 +9,63 @@ import styles from "./Main.module.css"
 
 const Main = () => {
 
-    const asyncLocalStorage = useMemo( () => ({
-        setItem: async function (key, value) {
-            await null;
-            return localStorage.setItem(key, value);
-        },
-        getItem: async function (key) {
-            await null;
-            return localStorage.getItem(key);
-        }
-    }), [])
-
-    if (!localStorage.getItem('time')) { localStorage.setItem('time', new Date()) }
+    if (!localStorage.getItem('time')) { localStorage.setItem('time', new Date().toISOString()) }
+    if (!localStorage.getItem('ppm')) { localStorage.setItem('ppm', 10.666) }
 
     const [starttime, setStarttime] = useState(localStorage.getItem('time'))
     const [weight, setWeight] = useState(localStorage.getItem('weight'))
     const [gender, setGender] = useState(localStorage.getItem("gender"))
+    const [ppm, setPpm] = useState(localStorage.getItem("ppm"))
 
-    // Get values and update: time
+    // Get values and update: TIME -----------------------------------------------
     const callbackTime = (value) => {
-        setStarttime(value)
+        setStarttime(value.toString())
         localStorage.setItem('time', starttime)
-        console.log(starttime)
     }
 
     useEffect(() => {
-        localStorage.setItem('time', starttime) 
+        localStorage.setItem('time', starttime)
+        localStorage.setItem('endtime', new Date().toISOString())
 
     }, [starttime])
+    //----------------------------------------------------------------------------
 
-    // Get values and update: weight
+    // Get values and update: WEIGHT ---------------------------------------------
     const callbackWeight = (value) => {
         setWeight(value)
         localStorage.setItem('weight', weight)
-        console.log(weight)
     }
 
     useEffect(() => {
         localStorage.setItem('weight', weight) 
 
     }, [weight])
+    //-----------------------------------------------------------------------------
 
-    // Get values and update: gender
+    // Get values and update: GENDER ----------------------------------------------
     const callbackGender = (value) => {
         setGender(value)
-        asyncLocalStorage.setItem('gender', gender)
+        localStorage.setItem('gender', gender)
     }
 
     useEffect(() => {
-        asyncLocalStorage.setItem('gender', gender) 
+        localStorage.setItem('gender', gender) 
 
-    }, [gender, asyncLocalStorage])
+    }, [gender, localStorage])
 
     useEffect(() => {
         localStorage.getItem('gender', gender) 
     }, [gender])
-    
+    //----------------------------------------------------------------------------
+
+    // ACHOHOL -------------------------------------------------------------------
+    useEffect(() => {
+        localStorage.setItem('ppm', 600) 
+
+    }, [ppm, localStorage])
+
+    // ---------------------------------------------------------------------------
+
   return (
     <div className={ styles.main }>
         <div className={ styles.properties }>
@@ -80,6 +81,12 @@ const Main = () => {
         </div>
         <div className={ styles.bottom }>
             <Knapp text="Resultat" page="/resultat"/>
+        </div>
+
+        <div>
+            <p>Time: { starttime } </p>    
+            <p>type: { typeof starttime} </p>
+            <p>Weight: { weight } </p>
         </div>
     </div>
   )
